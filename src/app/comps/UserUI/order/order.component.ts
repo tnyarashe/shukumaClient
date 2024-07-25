@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
   orderTotal$ = new BehaviorSubject<number>(0)
 
   constructor(private orderService : OrdersService, private cartService: CartService){}
-
+  show:boolean = true;
   ngOnInit(): void {
     this.total = JSON.parse(`${localStorage.getItem('Total')}`)
     this.getAllOrders()
@@ -50,7 +50,7 @@ export class OrderComponent implements OnInit {
   
       this.orderService.getAllDriverOrders("1234567890").subscribe({
         next: (data: any) =>{
-  
+          this.show = false;
           this.orders = data.reverse();
           
         // this.orders = data.Orders
@@ -58,6 +58,7 @@ export class OrderComponent implements OnInit {
           
         },
         error: (err) => {
+          this.show = false;
           console.error('Error fetching orders:', err);
         }
       })

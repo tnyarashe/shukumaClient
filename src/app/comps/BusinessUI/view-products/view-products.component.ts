@@ -12,6 +12,7 @@ export class ViewProductsComponent implements OnInit {
   products: any[] = [];
   selectedProduct: any;
   isUpdateModalOpen: boolean = false;
+  show:boolean = true;
 
   constructor(private _productService: ProductService) {
 
@@ -25,10 +26,12 @@ export class ViewProductsComponent implements OnInit {
   getAllProducts(): void {
     this._productService.getAllProducts().subscribe({
       next: (data: ProductDbResponse) => {
+        this.show = false
         this.products = data.products.reverse();
         console.log(this.products);
       },
       error: err => {
+        this.show = false
         console.log(err);
       }
     });

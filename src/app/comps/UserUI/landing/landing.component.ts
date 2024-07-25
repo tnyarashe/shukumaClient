@@ -14,13 +14,13 @@ export class LandingComponent {
 
   mLoginBusiness(){
     setTimeout(() => {
-      this.route.navigate(["registerBusiness"]);
+      this.route.navigate(["products"]);
     }, 500)
   }
 
   mLoginUser(){
     setTimeout(() => {
-      this.route.navigate(["register"]);
+      this.route.navigate(["login"]);
     }, 500)
   }
 

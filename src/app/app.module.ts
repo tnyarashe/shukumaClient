@@ -1,15 +1,4 @@
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AdminComponent } from './comps/admin/admin.component';
-import { RegisterComponent } from './comps/register/register.component';
-import { LoginComponent } from './comps/login/login.component';
-import { HomeComponent } from './comps/home/home.component';
-import { MapComponent } from './comps/map/map.component';
-=======
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -69,27 +58,10 @@ import { UserUIComponent } from './comps/user-ui/user-ui.component';
 
 
 
->>>>>>> 7b6f75444f96f64f9afe4f5723b11b8a92c60ff7
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    AdminComponent,
-    RegisterComponent,
-    LoginComponent,
-    HomeComponent,
-    MapComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-=======
     RegisterComponent,
     LoginComponent,
     AdminComponent,
@@ -152,4 +124,3 @@ export class AppModule { }
 })
 export class AppModule { }
 
->>>>>>> 7b6f75444f96f64f9afe4f5723b11b8a92c60ff7

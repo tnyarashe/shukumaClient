@@ -28,7 +28,11 @@
           </div>
       </div>
 
-      <p class="other">Don't have an account?<a href="register">REGISTER</a> </p>
+<button type="submit" class="btn btn-primary mb-0"><label *ngIf="!show">Login</label><div *ngIf="show" class="loader"></div></button>
+    
+
+
+      <p class="other">Don't have an account? <a href="register">Register</a> </p>
       <div>
         <div *ngIf="isSuccessful" class="z-40 w-full text-center  ">
           <div class="btn btn-success text-white px-3">
@@ -44,7 +48,7 @@
         </div>
        
       </div>
-      <button type="submit" class="btn btn-primary" >Login</button>
+      
   </form>
 </div>
 <!-- <app-register-business></app-register-business> -->

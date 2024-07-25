@@ -17,6 +17,7 @@ export class DriverDashComponent implements OnInit{
   error: string | null = null;
 
   constructor( private ordersService: OrdersService) {}
+  show:boolean = true;
 
   ngOnInit(): void {
     this.getAllOrders()
@@ -26,7 +27,7 @@ export class DriverDashComponent implements OnInit{
 
     this.ordersService.getAllDriverOrders("1234567890").subscribe({
       next: (data: any) =>{
-
+        this.show = false;
         this.orders = data.reverse();
         
       // this.orders = data.Orders
@@ -34,6 +35,7 @@ export class DriverDashComponent implements OnInit{
         
       },
       error: (err) => {
+        this.show = false;
         console.error('Error fetching orders:', err);
       }
     })

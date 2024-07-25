@@ -1,5 +1,6 @@
 <section>
-    <h1>How your day is looking today</h1>
+  <app-spinner *ngIf="show"></app-spinner>
+    <h1 style="position: fixed;">Deliveries</h1>
 
     <div class="order-holder">
         <div *ngFor="let order of orders" class="order-item" routerLink='/driver/view-one/{{order.id}}'(click)='passOrder(order)'>
@@ -8,7 +9,7 @@
 
             <div class="del-det">
                 <div class="side-by-side">
-                    <p class="pb-2">{{order.id | slice:(order.id.length / 2)}}
+                    <p class="pb-1 ">shu-{{order.id | slice:(order.id.length / 2)}}
                         <div *ngIf="order.status == 'cancelled'" class="on-going cancelled">
                         </div>
 

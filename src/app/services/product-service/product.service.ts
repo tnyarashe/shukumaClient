@@ -36,7 +36,10 @@ import { ProductDbResponse } from '../../interfaces/productDbResponse';
     return this._http.delete<Product>(`${this.baseUrl}/articles`)
   }
 
-  updateAProduct(id: string, data: FormData) : Observable<Product> {
-    return this._http.put<Product>(`${this.baseUrl}/article/${id}`, data)
+  updateAProduct(id: string, data: any) : Observable<Product> {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+   
+    return this._http.put<Product>(`http://localhost:3002/v1/products/articles/${id}`, data, {headers})
   }
   }

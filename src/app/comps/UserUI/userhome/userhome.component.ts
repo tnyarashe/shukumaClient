@@ -25,6 +25,7 @@ export class UserhomeComponent implements OnInit {
   currentIndex = 0;
 
   private autoSlideInterval: any;
+  show:boolean = true;
 
   @Input() images: string[] = ["../../../assets/customer_service_generated.jpg", "../../../assets/2287_generated.jpg","../../../assets/digitalLogistics.webp"];
   @Input() captions: string[] = [];
@@ -52,13 +53,14 @@ getAllProducts(){
   this._productService.getAllProducts().subscribe({
     next: (data: ProductDbResponse) =>{
     this.allProducts = data.products
-      console.log(data)
+      // console.log(data)
       this.filterItemsByCylinders()
       this.filterStoves()
       this.filterSpares()
-
+      this.show = false;
     },
     error: err=>{
+      this.show = false;
       console.log(err)
     }
   })

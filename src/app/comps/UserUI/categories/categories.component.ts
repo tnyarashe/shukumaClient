@@ -13,7 +13,7 @@ import { CartItem } from '../../../interfaces/cartItem';
 })
 export class CategoriesComponent implements OnInit {
   selectedCategory: string = 'all';
-
+  show:boolean = true;
   allProduct : any = []
   products: any;
   page:any
@@ -38,15 +38,19 @@ export class CategoriesComponent implements OnInit {
       // this.filter(this.products)
   }
   getAllProducts(){
+    
     const path = this.route.snapshot.paramMap.get('catname')
     this.page = path
     this._productService.getAllProducts().subscribe({
+
       next: (data: ProductDbResponse )=>{
+        this.show = false
       this.allProduct = data.products
       console.log(this.allProduct)
       this.filterItems(path)
       },
       error: err=>{
+        this.show = false
         console.log(err)
       }
     })

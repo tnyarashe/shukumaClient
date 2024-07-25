@@ -39,31 +39,37 @@ export class LoginComponent implements OnInit {
   errorMessage = ''
   successMessage=""
 
+  show:boolean = false;
+
   constructor(private router: Router, private fb: FormBuilder, private auth: AuthService, private tokenStorage : TokenService) {
     this.userForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      email: ['dumisanincubeni@live.co.za', [Validators.required, Validators.email]],
+      password: ['cxcxvchhjvhjv', Validators.required]
     });
   }
 
   ngOnInit(): void {
   
-    
   }
+  
   login(){
-    console.log(this.userForm.value)
+    this.show = true;
+    // console.log(this.userForm.value)
     this.auth.login(this.userForm.value).subscribe({
       next: (data)=>{
-        console.log(data)
+        
+        // console.log(data)
         this.tokenStorage.saveToken(data.token)
         this.tokenStorage.saveUser(data)
         this.isSuccessful=true
         this.successMessage = "Login is successfull"
         setTimeout(()=>{
+          this.show = false;
           this.router.navigate(['/userhome'])
         }, 3000)
       },
       error: (err)=>{
+        this.show = false;
         console.error("An err", err)
         this.tokenStorage.saveToken(this.token)
         this.tokenStorage.saveUser(this.data)

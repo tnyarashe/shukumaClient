@@ -59,25 +59,51 @@
 </div>-->
 <app-footer></app-footer> 
 
-<section>
+<section class="pb-10">
     <img src="../../../../assets/D183066B-A44A-48E7-88D2-6C123BBFD18B_4_5005_c.jpeg"/>
 
     <h1># {{order?.id}}</h1>
-    <label>Driver: Leon Sch </label>
-    <!-- <label>Address: {{order?.shippingAddress?.address}}</label> -->
 
-    <div class="side-by-side">
-        <label> Item: {{order?.items?.length}}</label>
-
-        <!-- <label>Qty: 1</label> -->
+    <div *ngIf="order?.status == 'pending'">
+        <label><b>Status:</b> {{order?.status}}</label>
+        <p style="font-size: 13px;">We'll let you know as soon as your order is on it's way</p>
+        <label style="font-size: 14px;"><b>Date: </b><label style="font-size: 13px;"> {{order?.createdAt}}</label></label>
+        <p style="font-size: 13px;">{{order?.shippingAddress?.address}}</p>
     </div>
-    
 
+    <div *ngIf="order?.status == 'in-progress'">
+            <label style="font-size: 14px;" ><b>Driver: </b>Junior Seteni</label><br>
+            <label style="font-size: 14px;"><b>Status: </b>{{order?.status}}</label>
+            <label style="font-size: 14px;"><b>Placed: </b>{{order?.createdAt}}</label>
+        <p style="font-size: 14px;"><b>Coming to: </b>{{order?.shippingAddress?.address}}</p>
+                <!-- <label>Address: {{order?.shippingAddress?.address}}</label> -->
+<br>
+        <div class="side-by-side">
+            <label>Payment</label>
+
+            <label class="price">R200</label>
+        </div>
+    </div>
+
+    <div *ngIf="order?.status == 'complete'">
+        <label style="font-size: 14px;"><b>Status: </b>{{order?.status}}</label><br>
+        <label style="font-size: 14px;" ><b>Driver: </b>Junior Seteni</label>
+        
+        <p style="font-size: 15px; font-style: italic; color: steelblue;">Thank you for using Shukuma, rate your delivery here <a>RateMe</a></p>
+
+        
+        <label style="font-size: 14px;"><b>Date: </b>{{order?.createdAt}}</label>
+    <p style="font-size: 14px;"><b>Delivered: </b>{{order?.shippingAddress?.address}}</p>
+            <!-- <label>Address: {{order?.shippingAddress?.address}}</label> -->
+<br>
     <div class="side-by-side">
-        <label>Cash</label>
+        <label>Payment</label>
 
         <label class="price">R200</label>
     </div>
+</div>
+
+    
 
     <div id="map" *ngIf="order?.status == 'in-progress'"></div>
     

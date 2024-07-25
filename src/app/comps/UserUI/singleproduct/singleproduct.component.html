@@ -1,9 +1,9 @@
 <app-navigation></app-navigation>
-<section class="mb-24 mt-5 container">
+<section class="mb-24 container">
 
 <div *ngIf="selectedProduct" class="w-full mx-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <a class="border">
-      <img class="w-full h-7 mx-2 p-14 rounded-t-lg" src="{{selectedProduct.imageUrl}}" alt="product image" />
+      <img class="w-half h-5 mx-2 pl-14 pr-14 rounded-t-lg" src="{{selectedProduct.imageUrl}}" alt="product image" />
   </a>
 
   <div class="px-5 pb-5">
@@ -36,7 +36,7 @@
       </div>
       <div class="flex items-center justify-between">
         
-        <div (click)="addToFavs(selectedProduct)" class=" border-none bg-base-100  py-2.5  font-medium rounded-lg text-sm text-center ">
+        <div style="background-color: white;" (click)="addToFavs(selectedProduct)" class=" border-none bg-base-100  py-2.5  font-medium rounded-lg text-sm text-center ">
           <svg class="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
         </svg>

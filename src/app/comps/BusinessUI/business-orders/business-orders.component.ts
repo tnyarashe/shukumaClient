@@ -18,7 +18,7 @@ export class BusinessOrdersComponent implements OnInit {
   error: string | null = null;
 
   
-  
+  show:boolean = true;
 
   constructor( private ordersService: OrdersService, private location: Location) {}
 
@@ -35,7 +35,7 @@ export class BusinessOrdersComponent implements OnInit {
 
     this.ordersService.getAllOrders().subscribe({
       next: (data: any) =>{
-
+        this.show = false;
         this.orders = data;
         
       // this.orders = data.Orders
@@ -43,6 +43,7 @@ export class BusinessOrdersComponent implements OnInit {
         
       },
       error: (err) => {
+        this.show = false;
         console.error('Error fetching orders:', err);
       }
     })

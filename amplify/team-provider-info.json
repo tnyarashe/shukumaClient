@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-shukumaclient-dev-e7e75-authRole",
+      "UnauthRoleArn": "arn:aws:iam::730335184322:role/amplify-shukumaclient-dev-e7e75-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::730335184322:role/amplify-shukumaclient-dev-e7e75-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-shukumaclient-dev-e7e75-deployment",
+      "UnauthRoleName": "amplify-shukumaclient-dev-e7e75-unauthRole",
+      "StackName": "amplify-shukumaclient-dev-e7e75",
+      "StackId": "arn:aws:cloudformation:eu-west-1:730335184322:stack/amplify-shukumaclient-dev-e7e75/1ad56ce0-475d-11ef-b40f-02e12ea43353",
+      "AmplifyAppId": "d186smdlnm4lqb"
+    }
+  },
+  "gapikey": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-shukumaclient-gapikey-a360d-authRole",
+      "UnauthRoleArn": "arn:aws:iam::730335184322:role/amplify-shukumaclient-gapikey-a360d-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::730335184322:role/amplify-shukumaclient-gapikey-a360d-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-shukumaclient-gapikey-a360d-deployment",
+      "UnauthRoleName": "amplify-shukumaclient-gapikey-a360d-unauthRole",
+      "StackName": "amplify-shukumaclient-gapikey-a360d",
+      "StackId": "arn:aws:cloudformation:eu-west-1:730335184322:stack/amplify-shukumaclient-gapikey-a360d/091a3010-477d-11ef-9b10-06c15adcda3f",
+      "AmplifyAppId": "d186smdlnm4lqb"
+    }
+  }
+}

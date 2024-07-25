@@ -13,6 +13,11 @@ import { NgForm } from '@angular/forms';
 
 
 export class ViewOneProductComponent implements OnInit {
+
+  isSuccessful = false
+  isSignUpFailed = false
+  errorMessage = ''
+  successMessage= ""
   product: any = {
     category: "",
     title: "",
@@ -46,6 +51,7 @@ export class ViewOneProductComponent implements OnInit {
       this.productService.getProduct(id).subscribe({
         next: (res: any) => {
           this.selectedProduct = res.product;
+          console.log(this.selectedProduct)
           this.product = { ...this.selectedProduct }; // Populate form with existing product data
         },
         error: (err: any) => {
@@ -64,8 +70,18 @@ export class ViewOneProductComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+
+    console.log(form.value)
     if (form.valid) {
-      const formData: FormData = new FormData();
+      this.product.title = form.form.get('title')?.value
+      this.product.stock = form.form.get('stock')?.value
+      this.product.description = form.form.get('description')?.value
+      this.product.price = form.form.get('price')?.value
+      this.product.category = form.form.get('category')?.value
+      
+    }
+
+      const formData: any = new FormData();
 
       for (let key in this.product) {
         if (key !== 'imgUrl') {
@@ -76,21 +92,23 @@ export class ViewOneProductComponent implements OnInit {
         formData.append('imgUrl', this.selectedFile);
         console.log(this.selectedFile)
       }
-
-      formData.append('businessId', "66864f8dad57296a97884bc0");
+      
+      formData.delete('id')
 
       if (this.id) {
         this.productService.updateAProduct(this.id, formData).subscribe({
           next: response => {
             console.log('Product updated successfully', response);
-            form.reset();
+            //form.reset();
+            this.isSuccessful = true
+            this.successMessage = 'Product updated successfully'
           },
           error: error => {
             console.error('Error updating product', formData, error);
           }
         });
       }
-    }
+    
   }
 
   onDeleteProduct(id: string): void {

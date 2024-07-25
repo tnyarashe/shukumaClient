@@ -30,7 +30,7 @@ export class SingleOrderComponent implements OnInit {
 
     this.order_service.mGetPassOrder().subscribe((order:Order) => {
       this.order = order
-      console.log(this.order)
+      // console.log('>>', this.order)
       if(order.status == 'pending'){
         this.ButtonText = 'Start Order'
       }
@@ -118,7 +118,7 @@ export class SingleOrderComponent implements OnInit {
           if(counter >= this.data.length){
             counter = 0;
           }
-      }, 5000)
+      }, 2000)
     }, 3000)
     
   }

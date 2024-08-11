@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-=======
 import { NgModule } from '@angular/core'
 
 import { UserhomeComponent } from './comps/UserUI/userhome/userhome.component';
@@ -113,7 +104,6 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes),],
->>>>>>> 7b6f75444f96f64f9afe4f5723b11b8a92c60ff7
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

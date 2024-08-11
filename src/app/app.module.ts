@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule} from '@angular/google-maps';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { authInterceptorProviders } from './auth-interceptor.interceptor';
@@ -115,6 +116,7 @@ import { UserUIComponent } from './comps/user-ui/user-ui.component';
     HttpClientModule,
     CommonModule,
     GoogleMapsModule,
+    RouterModule
   ],
   providers: [
     provideClientHydration(),
